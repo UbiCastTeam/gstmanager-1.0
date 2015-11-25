@@ -1,0 +1,13 @@
+HOWTO
+=====
+
+To devel, simply execute tests from the root dir:
+cd gstmanager1
+PYTHONPATH=. python tests/test_gstmanager1.py
+
+This way you won't need to re-install the library every time you change it
+
+CONTRIBUTING
+============
+
+To contribute (s)bins, just send them to me <fthiery@gmail.com>
