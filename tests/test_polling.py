@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import easyevent
+
 from gi.repository import GObject
-from gstmanager1.event import User
 from gstmanager1.gstmanager1 import PipelineManager
 
 
-class Test(User):
+class Test(easyevent.User):
     def __init__(self):
-        User.__init__(self)
+        easyevent.User.__init__(self)
         self.register_event("drop_value_change")
 
     def evt_drop_value_change(self, event):

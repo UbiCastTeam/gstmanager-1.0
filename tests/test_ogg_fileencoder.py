@@ -3,13 +3,13 @@
 
 # SBins are for "String Bins": manipulating Bins directly with Python can be tricky, notably because of the API differences (and lack of documentation porting) with the C API. Using string-based bin-like manipulation offers some flexibility over raw bin programming
 
+import easyevent
 import logging
 import sys
 logger = logging.getLogger("ogg-encoder")
 
 from gi.repository import GObject
 
-from gstmanager1.event import User
 from gstmanager1.gstmanager1 import PipelineManager
 from gstmanager1.profiles.ogg import OggDefaultRecordingProfile
 from gstmanager1.sbinmanager import SBinManager
@@ -26,9 +26,9 @@ class OggRecordingProfile(OggDefaultRecordingProfile):
         self.video_height = 480
 
 
-class Actioner(User):
+class Actioner(easyevent.User):
     def __init__(self):
-        User.__init__(self)
+        easyevent.User.__init__(self)
         self.register_event("eos")
         self.register_event("caps")
         self.register_event("encoding_progress")
@@ -60,6 +60,7 @@ class OggEncodingTestApp(SBinManager, PipelineManager):
         profile = OggRecordingProfile()
         self.encoder = encoder = OggEncoder(filename="/tmp/test", profile=profile)
         self.add_many(vsource, asource, previewsink, encoder)
+        print(self.pipeline_desc)
         PipelineManager.__init__(self, self.pipeline_desc)
 
 if __name__ == '__main__':

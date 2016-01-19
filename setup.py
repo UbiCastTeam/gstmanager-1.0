@@ -24,6 +24,7 @@ setup(
         'gstmanager1/profiles'
     ],
     install_requires=[
+        'easyevent',
         'gir1.2-gstreamer-1.0',
         'gstreamer1.0-tools',
         'libgstreamer1.0-0',

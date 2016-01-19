@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import easyevent
 import logging
 import sys
 
 from gi.repository import GObject
-from gstmanager1.event import User
 from gstmanager1.gstmanager1 import PipelineManager
 logger = logging.getLogger('message_test')
 
 
-class Actioner(User):
+class Actioner(easyevent.User):
     def __init__(self, pipelinel):
-        User.__init__(self)
+        easyevent.User.__init__(self)
         self.pipelinel = pipelinel
         self.signal_identity = None
         self.identity = None

@@ -23,6 +23,7 @@ Copyright 2015, Anthony Violo, under the terms of LGPL
 """
 __author__ = ("Florent Thiery <fthiery@gmail.com>", "Dirk Van Haerenborgh <vhdirk@gmail.com>", "Anthony Violo <anthony.violo@ubicast.eu>")
 
+import easyevent
 import os
 import logging
 logger = logging.getLogger('Gstmanager')
@@ -30,14 +31,13 @@ logger = logging.getLogger('Gstmanager')
 import gi
 gi.require_version('Gst', '1.0')
 from gi.repository import GObject, Gst, Gtk
-from gstmanager1.event import User
 
 pipeline_desc = "videotestsrc ! xvimagesink"
 
 
-class PipelineManager(User):
+class PipelineManager(easyevent.User):
     def __init__(self, pipeline_string=None, name=None):
-        User.__init__(self)
+        easyevent.User.__init__(self)
         Gst.init(None)
         self.send_debug = False
         self.name = name
@@ -97,7 +97,6 @@ class PipelineManager(User):
 
     def run(self, *args):
         logger.info("Starting pipeline {0}".format(self.pipeline.get_name()))
-        print(self.pipeline)
         self.launch_event("sos", self.pipeline)
         self.pipeline.set_state(Gst.State.PLAYING)
         return False

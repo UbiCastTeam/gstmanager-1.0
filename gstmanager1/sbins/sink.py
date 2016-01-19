@@ -5,7 +5,7 @@
 class VideoSink(object):
     def __init__(self, sbin_content):
         self.tags = ["v_src"]
-        self.sbin = "%s_tee. ! queue ! autovideoconvert ! %s" % (self.tags[0], sbin_content)
+        self.sbin = "%s_tee. ! queue ! videoconvert ! %s" % (self.tags[0], sbin_content)
 
 
 class AudioSink(object):

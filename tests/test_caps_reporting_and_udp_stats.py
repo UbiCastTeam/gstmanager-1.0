@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import easyevent
 import time
 
 from gi.repository import GObject
-from gstmanager1.event import User
 from gstmanager1.gstmanager1 import PipelineManager
 
 
-class Actioner(User):
+class Actioner(easyevent.User):
     def __init__(self):
-        User.__init__(self)
+        easyevent.User.__init__(self)
         self.register_event("caps")
 
     def evt_caps(self, event):
