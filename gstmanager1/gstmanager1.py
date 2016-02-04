@@ -30,7 +30,7 @@ logger = logging.getLogger('Gstmanager')
 
 import gi
 gi.require_version('Gst', '1.0')
-from gi.repository import GObject, Gst, Gtk
+from gi.repository import GObject, Gst
 
 pipeline_desc = "videotestsrc ! xvimagesink"
 
@@ -260,4 +260,5 @@ if __name__ == '__main__':
 
     pipelinel = PipelineManager(pipeline_desc)
     pipelinel.run()
-    Gtk.main()
+    main_loop = GObject.MainLoop()
+    GObject.MainLoop()
