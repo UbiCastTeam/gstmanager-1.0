@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-from gstmanager1.event import User
+import easyevent
 
 
-class DefaultEncodingProfile(User):
+class DefaultEncodingProfile(easyevent.User):
     def __init__(self):
-        User.__init__(self)
+        easyevent.User.__init__(self)
         # In kbits/s
         self.video_bitrate = 2000
         # In bits/s

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-
+import easyevent
 import logging
 logger = logging.getLogger("encoder")
 
@@ -11,7 +11,6 @@ from gi.repository import GObject
 from gstmanager1.profile import DefaultEncodingProfile
 from gstmanager1.sbinmanager import SBinManager
 
-from gstmanager1.event import User
 
 """
 List of encoder-related signals
@@ -28,9 +27,9 @@ Sent signals:
 """
 
 
-class ProgressInfo(User):
+class ProgressInfo(easyevent.User):
     def __init__(self):
-        User.__init__(self)
+        easyevent.User.__init__(self)
         self.start_time = datetime.datetime.now()
         self.hduration = "0:00:00"
         self.duration = datetime.datetime.now() - self.start_time
@@ -84,10 +83,10 @@ class VideoEncoder(object):
         VideoEncoder.index += 1
 
 
-class FileEncoder(SBinManager, User):
+class FileEncoder(SBinManager, easyevent.User):
     def __init__(self, filename):
         SBinManager.__init__(self)
-        User.__init__(self)
+        easyevent.User.__init__(self)
         self.progress = ProgressInfo()
         self.check_for_compat = False
         self.filename = filename
