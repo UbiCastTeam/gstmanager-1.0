@@ -20,7 +20,7 @@ if __name__ == '__main__':
 
     a = Actioner()
 
-    pipeline_desc = "audiotestsrc ! faac ! rtpmp4gpay name=pay ! udpsink host=127.0.0.1 port=1234 name=sink"
+    pipeline_desc = "audiotestsrc ! avenc_aac ! rtpmp4gpay name=pay ! udpsink host=127.0.0.1 port=1234 name=sink"
     print("pipeline : %s" % (pipeline_desc))
     pipelinel = PipelineManager(pipeline_desc)
 
