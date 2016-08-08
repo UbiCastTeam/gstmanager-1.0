@@ -43,4 +43,5 @@ if __name__ == '__main__':
     GObject.idle_add(pipelinel.activate_caps_reporting_on_element, "pay")
     GObject.idle_add(pipelinel.run)
     main_loop = GObject.MainLoop()
+    GObject.timeout_add(5000, main_loop.quit)
     main_loop.run()

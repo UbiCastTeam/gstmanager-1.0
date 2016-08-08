@@ -39,7 +39,7 @@ if __name__ == '__main__':
         stream=sys.stderr
     )
 
-    pipeline_desc = "videotestsrc num-buffers=100 ! videobalance ! identity silent=false signal-handoffs=true name=identity ! xvimagesink"
+    pipeline_desc = "videotestsrc num-buffers=100 ! videobalance ! identity silent=false signal-handoffs=true name=identity ! fakesink"
 
     pipelinel = PipelineManager(pipeline_desc)
     actioner = Actioner(pipelinel)

@@ -45,4 +45,5 @@ if __name__ == '__main__':
     GObject.timeout_add(2000, set_brightness, pipelinel, 0.2)
 
     main_loop = GObject.MainLoop()
+    GObject.timeout_add(7000, main_loop.quit)
     main_loop.run()

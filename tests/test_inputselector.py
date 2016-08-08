@@ -31,4 +31,5 @@ if __name__ == '__main__':
     GObject.timeout_add(10000, pipelinel.send_eos)
 
     main_loop = GObject.MainLoop()
+    GObject.timeout_add(15000, main_loop.quit)
     main_loop.run()

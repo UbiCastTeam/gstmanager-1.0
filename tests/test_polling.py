@@ -18,7 +18,6 @@ class Test(easyevent.User):
         property = event.content["property"]
         print("%s reports %s prop change to value %s" % (src, property, data))
 
-
 caps_in = "video/x-raw, format=(string)YUY2, width=(int)320, height=(int)240, framerate=(fraction)30/1"
 caps_out = "video/x-raw, format=(string)YUY2, width=(int)320, height=(int)240, framerate=(fraction)25/1"
 pip = "videotestsrc ! %s ! videorate ! %s ! fakesink" % (caps_in, caps_out)
@@ -34,5 +33,5 @@ t = Test()
 main_loop = GObject.MainLoop()
 GObject.timeout_add_seconds(10, p.deactivate_pollings)
 GObject.timeout_add_seconds(12, p.stop)
-GObject.timeout_add_seconds(12, main_loop.quit)
+GObject.timeout_add_seconds(13, main_loop.quit)
 main_loop.run()

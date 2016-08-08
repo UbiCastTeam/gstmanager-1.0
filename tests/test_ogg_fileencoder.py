@@ -16,7 +16,7 @@ from gstmanager1.sbinmanager import SBinManager
 from gstmanager1.sbins.sources.audiotest import AudioTestSource
 from gstmanager1.sbins.encoders.ogg import OggEncoder
 from gstmanager1.sbins.sources.videotest import VideoTestSource
-from gstmanager1.sbins.sinks.xvimagesink import XVImageSink
+from gstmanager1.sbins.sink import FakeSink
 
 
 class OggRecordingProfile(OggDefaultRecordingProfile):
@@ -65,9 +65,9 @@ class OggEncodingTestApp(SBinManager, PipelineManager):
 
 if __name__ == '__main__':
 
-    v = VideoTestSource()
-    a = AudioTestSource()
-    sink = XVImageSink()
+    v = VideoTestSource(num_buffers=300)
+    a = AudioTestSource(num_buffers=300)
+    sink = FakeSink()
 
     encoder = OggEncodingTestApp(v, a, sink)
 
