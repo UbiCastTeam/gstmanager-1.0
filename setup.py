@@ -34,6 +34,7 @@ setup(
         'libgstreamer-plugins-bad1.0-0',
         'gstreamer1.0-plugins-bad',
         'gstreamer1.0-plugins-ugly',
+        'gstreamer1.0-vaapi',
         'gi',
         'python3-gi'
         'python3-gst-1.0',
